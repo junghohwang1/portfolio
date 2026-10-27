@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>황정호 · 포트폴리오</title>
+  <meta name="description" content="Java·Spring 백엔드와 Kotlin 안드로이드 앱을 만드는 개발자 황정호의 포트폴리오">
+  <meta property="og:title" content="황정호 · 포트폴리오">
+  <meta property="og:description" content="Java·Spring 백엔드와 Kotlin 안드로이드 앱을 만드는 개발자">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">황정호</a>
+      <nav>
+        <a href="#work">업무 경험</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#skills">기술</a>
+        <a href="#contact">연락</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 소개 -->
+    <section class="hero wrap">
+      <p class="eyebrow">Backend · Android Developer</p>
+      <h1>문제를 끝까지 추적해서<br>도구로 만드는 개발자, 황정호입니다.</h1>
+      <p class="lead">
+        Java·Spring 기반 업무 시스템의 화면·API·배치를 개발하고,
+        반복되는 분석 작업은 직접 도구로 만들어 팀이 함께 쓰게 합니다.
+        개인 시간에는 Kotlin·Jetpack Compose 로 생활에 필요한 안드로이드 앱을 만듭니다.
+      </p>
+      <div class="hero-links">
+        <a class="btn" href="#projects">프로젝트 보기</a>
+        <a class="btn ghost" href="https://github.com/junghohwang1" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <!-- 업무 경험 -->
+    <section id="work" class="wrap">
+      <h2>업무 경험</h2>
+      <article class="card">
+        <div class="card-head">
+          <h3>대규모 공공 플랫폼 차세대 재구축 (SI)</h3>
+          <span class="tag">2026 · 백엔드/풀스택</span>
+        </div>
+        <p>
+          관리자·공급업체·수요기관 3개 포털과 도메인 API 로 나뉜 MSA 구조의 공공 거래 플랫폼 재구축 프로젝트에서
+          <b>물품·카탈로그 도메인</b>을 맡았습니다.
+        </p>
+        <ul class="points">
+          <li><b>화면·API 개발</b> — Thymeleaf·ES6 화면, BFF(OpenFeign 집계) → 도메인 API(MyBatis·PostgreSQL)까지 한 기능을 끝까지 구현</li>
+          <li><b>레거시 이관 분석</b> — DB2 기반 기존 시스템의 SQL·배치를 역추적해 새 테이블 구조와의 차이·누락을 정리하고 범위 결정을 위한 근거 문서 작성</li>
+          <li><b>배치</b> — Spring Batch(Tasklet·Chunk) 기반 집계·상태 변경 배치 설계와 이관</li>
+          <li><b>품질</b> — 단위 테스트 시나리오를 실제 브라우저로 실행·판정하는 QC 자동화, 커밋 규칙(추적 ID) 검증 흐름 적용</li>
+          <li><b>개발 생산성</b> — 화면 하나의 호출 흐름(화면 → BFF → API → SQL → 테이블)을 자동으로 그려 주는 분석 도구를 만들어 팀에 배포 (아래 「개발 지원 도구」)</li>
+        </ul>
+        <p class="stack">Java 17 · Spring Boot 3 · Spring Batch · OpenFeign · MyBatis · PostgreSQL · Thymeleaf · ES6 · GitLab</p>
+      </article>
+    </section>
+
+    <!-- 프로젝트 -->
+    <section id="projects" class="wrap">
+      <h2>프로젝트</h2>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-head">
+            <h3>개발 지원 도구 (코드 흐름 분석기)</h3>
+            <span class="tag">Node.js · 사내 도구</span>
+          </div>
+          <p>여러 저장소로 나뉜 MSA 코드를 <b>읽기 전용</b>으로 정적 분석해, 화면 하나가 어떤 API·SQL·테이블을 거치는지 흐름도로 보여 주는 로컬 웹 도구입니다.</p>
+          <ul class="points">
+            <li>화면 JS → 컨트롤러 → 서비스 → Feign → 다른 저장소 → MyBatis 매퍼 → 테이블 자동 추적</li>
+            <li>배치(Job → Step → Tasklet → SQL)·외부 연계 흐름까지 같은 방식으로 표시</li>
+            <li>테이블 명세·공통코드 조회, 읽기 전용 SQL 콘솔(자동완성·바인드 변수), 즐겨찾기 그룹</li>
+            <li>설치·실행·흐름도 생성을 한 번에 하는 AI 코딩 도우미(Claude Code) 스킬로 묶어 팀원에게 배포</li>
+          </ul>
+          <p class="stack">Node.js · Express · PostgreSQL · CodeMirror · Claude Code Skill</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>동영상 다운로더</h3>
+            <span class="tag">Android · 공개 소스</span>
+          </div>
+          <p>광고·추적 SDK 없이 처음부터 새로 작성한 안드로이드 동영상 다운로드 앱입니다.</p>
+          <ul class="points">
+            <li>WebView 내장 브라우저(여러 탭·세션 복원)에서 페이지의 영상을 자동 감지</li>
+            <li>HLS(m3u8) 세그먼트 병렬 다운로드 · AES-128 복호화 · MP4 리먹싱, 이어받기</li>
+            <li><b>기기 안에서</b> 음성 인식(whisper.cpp, JNI)과 번역(ML Kit)으로 한국어 자막 생성</li>
+            <li>PIN 잠금 비공개 폴더, 앱 내 업데이트(GitHub Releases)</li>
+          </ul>
+          <p class="stack">Kotlin · Jetpack Compose · Media3 ExoPlayer · NDK/JNI · ML Kit</p>
+          <p class="links"><a href="https://github.com/junghohwang1/videodownloader" target="_blank" rel="noopener">소스 보기 →</a></p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>주향성경 · 바이블헬퍼</h3>
+            <span class="tag">Android · 배포 중</span>
+          </div>
+          <p>지원이 끊긴 성경 앱을 대신해 교회 공동체가 쓰도록 새로 만든 성경·찬송가 앱과 자료 관리 앱입니다.</p>
+          <ul class="points">
+            <li>성경 목록 → 장 → 본문 리더, 역본 전환·검색·오늘의 말씀·북마크</li>
+            <li>찬송가 723곡·교독문, 필요한 역본만 내려받아 쓰는 구조로 앱 용량 축소</li>
+            <li>Room(읽기 전용 번들 DB + 사용자 DB) 이중 구성, 안드로이드 6.0 기기까지 지원</li>
+            <li>설치가 낯선 사용자를 위한 단계별 설치 안내 페이지 운영</li>
+          </ul>
+          <p class="stack">Kotlin · Jetpack Compose · Room · Python(데이터 정제)</p>
+          <p class="links"><a href="https://github.com/junghohwang1/juhyang-bible-download" target="_blank" rel="noopener">내려받기 페이지 →</a></p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3>IP 카메라 뷰어</h3>
+            <span class="tag">Android · 진행 중</span>
+          </div>
+          <p>P2P 방식 가정용 IP 카메라를 보고 제어하는 앱을 Kotlin·Compose 로 다시 만들고 있습니다.</p>
+          <ul class="points">
+            <li>LAN 검색·QR 등록, 실시간 영상·양방향 음성·녹화, PTZ 제어</li>
+            <li>SD 카드 녹화 재생, 동작감지 알람, 기기 설정 화면</li>
+            <li>arm64 네이티브 P2P 라이브러리 연동(JNI)</li>
+          </ul>
+          <p class="stack">Kotlin · Jetpack Compose · JNI</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 기술 -->
+    <section id="skills" class="wrap">
+      <h2>기술</h2>
+      <div class="skills">
+        <div><h4>Backend</h4><p>Java 17 · Spring Boot 3 · Spring Batch · OpenFeign · MyBatis · PostgreSQL · REST/BFF 설계</p></div>
+        <div><h4>Frontend</h4><p>Thymeleaf · JavaScript(ES6) · Bootstrap · HTML/CSS</p></div>
+        <div><h4>Android</h4><p>Kotlin · Jetpack Compose · Room · Media3 · NDK/JNI · ML Kit</p></div>
+        <div><h4>Tools</h4><p>Node.js · Python · Git/GitLab/GitHub · Gradle · Playwright · Claude Code</p></div>
+      </div>
+    </section>
+
+    <!-- 연락 -->
+    <section id="contact" class="wrap contact">
+      <h2>연락</h2>
+      <p>프로젝트 소스와 활동은 GitHub 에서 볼 수 있습니다.</p>
+      <a class="btn" href="https://github.com/junghohwang1" target="_blank" rel="noopener">github.com/junghohwang1</a>
+    </section>
+  </main>
+
+  <footer class="wrap foot">© 2026 황정호</footer>
+</body>
+</html>

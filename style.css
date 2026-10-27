@@ -1,0 +1,113 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --text: #1b1f27;
+  --muted: #5b6372;
+  --line: #e3e6eb;
+  --accent: #2f5bea;
+  --accent-soft: #e8eefe;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1218;
+    --surface: #171b23;
+    --text: #e8ebf1;
+    --muted: #9aa3b2;
+    --line: #262c37;
+    --accent: #7ea0ff;
+    --accent-soft: #1c2640;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Pretendard, 'Malgun Gothic', system-ui, sans-serif;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* 상단 메뉴 */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.brand { font-weight: 800; color: var(--text); }
+.nav nav a { margin-left: 18px; color: var(--muted); font-size: 0.92rem; }
+.nav nav a:hover { color: var(--text); text-decoration: none; }
+
+/* 소개 */
+.hero { padding: 88px 20px 56px; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: 0.04em; margin: 0 0 10px; }
+.hero h1 { font-size: clamp(1.7rem, 4.2vw, 2.6rem); line-height: 1.35; margin: 0 0 18px; }
+.lead { color: var(--muted); font-size: 1.05rem; max-width: 680px; margin: 0 0 28px; }
+.hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 10px 18px; border-radius: 8px;
+  background: var(--accent); color: #fff; font-weight: 600;
+}
+.btn:hover { text-decoration: none; opacity: 0.9; }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+
+/* 섹션 */
+section { padding-top: 40px; padding-bottom: 24px; }
+h2 { font-size: 1.4rem; margin: 0 0 18px; }
+h2::after { content: ''; display: block; width: 32px; height: 3px; background: var(--accent); margin-top: 8px; border-radius: 2px; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+  margin-bottom: 16px;
+}
+.grid .card { margin-bottom: 0; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+.card h3 { font-size: 1.08rem; margin: 0; }
+.tag {
+  flex-shrink: 0; font-size: 0.75rem; color: var(--accent); background: var(--accent-soft);
+  padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+.card p { margin: 0 0 10px; }
+.points { margin: 0 0 12px; padding-left: 18px; }
+.points li { margin-bottom: 4px; font-size: 0.95rem; }
+.stack { color: var(--muted); font-size: 0.85rem; border-top: 1px dashed var(--line); padding-top: 10px; }
+.links { margin: 0; font-weight: 600; font-size: 0.92rem; }
+
+/* 기술 */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.skills > div { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.skills h4 { margin: 0 0 6px; color: var(--accent); }
+.skills p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.contact p { color: var(--muted); }
+.foot { color: var(--muted); font-size: 0.85rem; padding: 40px 20px 48px; border-top: 1px solid var(--line); margin-top: 32px; }
+
+body { overflow-x: hidden; }
+.hero h1, .card h3 { overflow-wrap: anywhere; }
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 16px; }
+  .grid, .skills { grid-template-columns: 1fr; }
+  .nav nav a { margin-left: 12px; font-size: 0.85rem; }
+}
+@media (max-width: 480px) {
+  .nav nav a { margin-left: 10px; font-size: 0.8rem; }
+  .nav nav a[href="#contact"] { display: none; }
+}
+@media (max-width: 720px) {
+  .hero { padding-top: 56px; }
+  .card-head { flex-direction: column; }
+}
